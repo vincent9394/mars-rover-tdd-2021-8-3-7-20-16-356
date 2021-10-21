@@ -7,12 +7,13 @@ public class MarsRover {
         this.roverStatus = roverStatus;
     }
 
-    public void executeCommands(String commands) {
+    public String  executeCommands(String commands) {
         String[] singleCommand = commands.split("");
         for (int i = 0; i < commands.length(); i++) {
             executeCommand(singleCommand[i]);
             //executeCommand(""+commands.charAt(i));
         }
+        return String.format("%d %d %s", roverStatus.getLocationX(), roverStatus.getLocationY(), roverStatus.getDirection());
     }
 
     public void executeCommand(String command) {
