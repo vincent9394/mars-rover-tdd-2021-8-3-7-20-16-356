@@ -87,4 +87,72 @@ class MarsRoverTest {
 //        then
         assertEquals(expected,actual);
     }
+
+    @Test
+    void should_direction_change_to_W_when_execute_command_given_direction_N_command_L(){
+//        given
+        locationX=0;
+        locationY=0;
+        direction="N";
+        command= "L";
+        expected= "0 0 W";
+        MarsRover MarsRover = new MarsRover(locationX, locationY,direction);
+
+//        when
+        actual =MarsRover.executeCommand(command);
+
+//        then
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void should_direction_change_to_N_when_execute_command_given_direction_E_command_L(){
+//        given
+        locationX=0;
+        locationY=0;
+        direction="E";
+        command= "L";
+        expected= "0 0 N";
+        MarsRover MarsRover = new MarsRover(locationX, locationY,direction);
+
+//        when
+        actual =MarsRover.executeCommand(command);
+
+//        then
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void should_direction_change_to_E_when_execute_command_given_direction_S_command_L(){
+//        given
+        locationX=0;
+        locationY=0;
+        direction="S";
+        command= "L";
+        expected= "0 0 E";
+        MarsRover MarsRover = new MarsRover(locationX, locationY,direction);
+
+//        when
+        actual =MarsRover.executeCommand(command);
+
+//        then
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void should_direction_change_to_S_when_execute_command_given_direction_W_command_L(){
+//        given
+        locationX=0;
+        locationY=0;
+        direction="W";
+        command= "L";
+        expected= "0 0 S";
+        MarsRover MarsRover = new MarsRover(locationX, locationY,direction);
+
+//        when
+        actual =MarsRover.executeCommand(command);
+
+//        then
+        assertEquals(expected,actual);
+    }
 }
