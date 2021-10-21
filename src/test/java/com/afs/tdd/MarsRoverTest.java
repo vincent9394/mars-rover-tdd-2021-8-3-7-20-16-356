@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MarsRoverTest {
-    private MarsRover marsRover;
+   // private MarsRover marsRover;
     private int locationX;
     private int locationY;
     private String direction; // N E S W
@@ -232,8 +232,19 @@ class MarsRoverTest {
 //        then
         assertEquals(expected, actual);
     }
-//    @Test
-//    void should_return_last_loacation_when_execute_commands_given_batches_commands(){
-//
-//    }
+    @Test
+    void should_return_last_loacation_when_execute_commands_given_batches_commands(){
+        locationX = 0;
+        locationY = 0;
+        direction = "N";
+        command = "MMLMMLMMLMM";
+        expected = "0 0 E";
+        MarsRover marsRover = new MarsRover(new RoverStatus(locationX, locationY, direction));
+
+//        when
+        actual = marsRover.executeCommands(command);
+
+//        then
+        assertEquals(expected, actual);
+    }
 }

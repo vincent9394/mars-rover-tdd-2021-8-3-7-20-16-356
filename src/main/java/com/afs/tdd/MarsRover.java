@@ -27,7 +27,7 @@ public class MarsRover {
     private void move() {
         int locationX = roverStatus.getLocationX();
         int locationY = roverStatus.getLocationY();
-        String direction = getRoverStatus().getDirection();
+        String direction = roverStatus.getDirection();
 
         switch (direction) {
             case "N":
@@ -51,10 +51,10 @@ public class MarsRover {
 //        if(this.direction.equals("W")) this.locationX=this.locationX-1;
     }
 
-    public RoverStatus getRoverStatus() {
-
-        return roverStatus;
-    }
+//    public RoverStatus getRoverStatus() {
+//
+//        return roverStatus;
+//    }
 
     private void turnLeft() {
         int locationX = roverStatus.getLocationX();
