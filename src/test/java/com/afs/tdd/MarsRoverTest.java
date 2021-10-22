@@ -233,7 +233,7 @@ class MarsRoverTest {
         assertEquals(expected, actual);
     }
     @Test
-    void should_return_last_loacation_when_execute_commands_given_batches_commands(){
+    void should_return_last_location_when_execute_commands_given_batches_commands(){
         locationX = 0;
         locationY = 0;
         direction = "N";

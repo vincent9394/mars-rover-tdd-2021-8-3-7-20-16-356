@@ -1,17 +1,22 @@
 package com.afs.tdd;
 
 public class MarsRover {
+    private static final String NORTH = "N";  //option + command + c
     private RoverStatus roverStatus;
+
+//    private  String east ="E";
+//    private  String south = "S";
+//    private  String west = "w";
 
     public MarsRover(RoverStatus roverStatus) {
         this.roverStatus = roverStatus;
     }
 
-    public String  executeCommands(String commands) {
+    public String executeCommands(String commands) {
         String[] singleCommand = commands.split("");
         for (int i = 0; i < commands.length(); i++) {
             executeCommand(singleCommand[i]);
-            //executeCommand(""+commands.charAt(i));
+
         }
         return String.format("%d %d %s", roverStatus.getLocationX(), roverStatus.getLocationY(), roverStatus.getDirection());
     }
@@ -23,65 +28,53 @@ public class MarsRover {
         // return String.format("%d %d %s", this.locationX, this.locationY, this.direction);
     }
 
-
+    //array [N,E,S,W]
     private void move() {
         int locationX = roverStatus.getLocationX();
         int locationY = roverStatus.getLocationY();
         String direction = roverStatus.getDirection();
 
         switch (direction) {
-            case "N":
-                locationY += 1;
+            case NORTH:
+                // locationY += 1;
+                roverStatus.setLocationY(locationY + 1);
                 break;
             case "E":
-                locationX += 1;
+                roverStatus.setLocationX(locationX + 1);
                 break;
             case "S":
-                locationY -= 1;
+                roverStatus.setLocationY(locationY - 1);
                 break;
             case "W":
-                locationX -= 1;
+                roverStatus.setLocationX(locationX - 1);
                 break;
 
         }
-        roverStatus = new RoverStatus(locationX, locationY, direction);
-//        if(this.direction.equals("N")) this.locationY=this.locationY+1;
-//        if(this.direction.equals("E")) this.locationX=this.locationX+1;
-//        if(this.direction.equals("S")) this.locationY=this.locationY-1;
-//        if(this.direction.equals("W")) this.locationX=this.locationX-1;
+
     }
 
-//    public RoverStatus getRoverStatus() {
-//
-//        return roverStatus;
-//    }
 
     private void turnLeft() {
-        int locationX = roverStatus.getLocationX();
-        int locationY = roverStatus.getLocationY();
+
         String direction = roverStatus.getDirection();
-        String newDirection = direction;
+
 
         switch (direction) {
-            case "N":
-                newDirection = "W";
+            case NORTH:
+                roverStatus.setDirection("W");
                 break;
             case "E":
-                newDirection = "N";
+                roverStatus.setDirection(NORTH);
                 break;
             case "S":
-                newDirection = "E";
+                roverStatus.setDirection("E");
                 break;
             case "W":
-                newDirection = "S";
+                roverStatus.setDirection("S");
                 break;
-//        if( this.direction =="N") this.direction="W";
-//        if( this.direction =="E") this.direction="N";
-//        if( this.direction =="S") this.direction="E";
-//        if( this.direction =="W") this.direction="S";
 
         }
-        roverStatus = new RoverStatus(locationX, locationY, newDirection);
+
     }
 
     private void turnRight() {
@@ -91,7 +84,7 @@ public class MarsRover {
         String newDirection = direction;
 
         switch (direction) {
-            case "N":
+            case NORTH:
                 newDirection = "E";
                 break;
             case "E":
@@ -101,13 +94,9 @@ public class MarsRover {
                 newDirection = "W";
                 break;
             case "W":
-                newDirection = "N";
+                newDirection = NORTH;
                 break;
         }
         roverStatus = new RoverStatus(locationX, locationY, newDirection);
-//        if( this.direction =="N") this.direction="E";
-//        if( this.direction =="E") this.direction="S";
-//        if( this.direction =="S") this.direction="W";
-//        if( this.direction =="W") this.direction="N";
     }
 }
